@@ -11,9 +11,7 @@ function towerBuilder(nFloors) {
       arr.push(starVar);
     }
   }
-  // should be able to refactor with map and without declaring a second array
-  const newArr = [];
-  arr.forEach((item) => {
+  const newArr = arr.map((item) => {
     if (item.length < arr[arr.length - 1].length) {
       const appendAndPrependSpaces =
         (arr[arr.length - 1].length - item.length) / 2;
@@ -21,10 +19,8 @@ function towerBuilder(nFloors) {
         " ".repeat(appendAndPrependSpaces) +
         item +
         " ".repeat(appendAndPrependSpaces);
-      newArr.push(item);
-    } else {
-      newArr.push(item);
     }
+    return item;
   });
   return newArr;
 }
